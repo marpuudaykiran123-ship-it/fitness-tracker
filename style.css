@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7f6;
+    color: #222;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================= AUTH ================= */
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1abc9c, #3498db);
+    padding: 20px;
+}
+
+.auth-box {
+    width: 390px;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.logo-large {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1abc9c;
+    margin-bottom: 15px;
+}
+
+.auth-box h2 {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+}
+
+.auth-box input:focus {
+    border-color: #1abc9c;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 7px;
+    background: #1abc9c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth-box button:hover {
+    background: #159a80;
+}
+
+.link {
+    color: #1abc9c;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.message {
+    margin-top: 12px;
+    min-height: 20px;
+}
+
+.demo-info {
+    margin-top: 20px;
+    padding: 12px;
+    background: #f1f5f4;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    min-height: 70px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    gap: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #1abc9c;
+    white-space: nowrap;
+}
+
+.admin-header .logo {
+    color: #3498db;
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+    flex: 1;
+}
+
+nav button {
+    border: none;
+    background: transparent;
+    padding: 11px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+nav button:hover {
+    background: #f1f5f4;
+    color: #1abc9c;
+}
+
+.logout-btn {
+    border: none;
+    background: #e74c3c;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+
+/* ================= MAIN ================= */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+}
+
+.welcome {
+    margin-bottom: 30px;
+}
+
+.welcome h1 {
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #777;
+}
+
+
+/* ================= DASHBOARD CARDS ================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1abc9c;
+    margin-bottom: 5px;
+}
+
+.card small {
+    color: #777;
+}
+
+
+/* ================= GRID ================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+
+/* ================= PANELS ================= */
+
+.panel,
+.form-panel,
+.goal-form,
+.report-card,
+.admin-info {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.panel h2,
+.admin-info h2 {
+    margin-bottom: 20px;
+}
+
+
+/* ================= FORMS ================= */
+
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #1abc9c;
+}
+
+.panel button,
+.form-panel button,
+.goal-form button {
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.panel button:hover,
+.form-panel button:hover,
+.goal-form button:hover {
+    background: #159a80;
+}
+
+
+/* ================= TABLE ================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    padding: 13px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #f1f5f4;
+}
+
+tr:hover {
+    background: #fafafa;
+}
+
+
+/* ================= CALORIES ================= */
+
+.total-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f1f5f4;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.total-box strong {
+    color: #1abc9c;
+    font-size: 22px;
+}
+
+
+/* ================= GOALS ================= */
+
+.goal-form {
+    max-width: 600px;
+}
+
+.goal-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.goal-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.goal-card h3 {
+    margin-bottom: 12px;
+}
+
+.goal-card p {
+    color: #1abc9c;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress-item {
+    margin-bottom: 25px;
+}
+
+.progress-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar div {
+    width: 0%;
+    height: 100%;
+    background: #1abc9c;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+
+/* ================= ADMIN ================= */
+
+.admin-header {
+    border-bottom: 3px solid #3498db;
+}
+
+.admin-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.admin-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.admin-card h3 {
+    margin-bottom: 15px;
+}
+
+.admin-card p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.admin-info ul {
+    padding-left: 25px;
+    line-height: 2;
+}
+
+.small-btn {
+    border: none;
+    background: #e74c3c;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.small-btn:hover {
+    background: #c0392b;
+}
+
+
+/* ================= ADMIN RECORDS ================= */
+
+.admin-record-card {
+    background: #f8faf9;
+    border-left: 5px solid #3498db;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.admin-record-card h3 {
+    margin-bottom: 10px;
+    color: #3498db;
+}
+
+.admin-record-card p {
+    margin: 7px 0;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .cards,
+    .admin-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    main {
+        padding: 15px;
+    }
+
+    .cards,
+    .admin-cards,
+    .goal-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-box {
+        width: 100%;
+        padding: 25px;
+    }
+
+    header {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    nav button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}

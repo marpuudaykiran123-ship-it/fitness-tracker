@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Fitness Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= AUTHENTICATION ================= -->
+
+    <div id="authContainer" class="auth-container">
+
+        <!-- LOGIN -->
+        <div id="loginBox" class="auth-box">
+
+            <div class="logo-large">💪 FitTrack</div>
+
+            <h2>Login</h2>
+
+            <p class="subtitle">
+                Track your fitness. Achieve your goals.
+            </p>
+
+            <input type="email"
+                   id="loginEmail"
+                   placeholder="Email">
+
+            <input type="password"
+                   id="loginPassword"
+                   placeholder="Password">
+
+            <button onclick="login()">Login</button>
+
+            <p id="loginMessage" class="message"></p>
+
+            <p>
+                Don't have an account?
+                <span class="link" onclick="showSignup()">
+                    Sign Up
+                </span>
+            </p>
+
+            <div class="demo-info">
+                <strong>Admin Login</strong><br>
+                Email: admin@gmail.com<br>
+                Password: admin123
+            </div>
+
+        </div>
+
+
+        <!-- SIGNUP -->
+        <div id="signupBox" class="auth-box hidden">
+
+            <div class="logo-large">💪 FitTrack</div>
+
+            <h2>Create Account</h2>
+
+            <p class="subtitle">
+                Start your fitness journey.
+            </p>
+
+            <input type="text"
+                   id="signupName"
+                   placeholder="Full Name">
+
+            <input type="email"
+                   id="signupEmail"
+                   placeholder="Email">
+
+            <input type="password"
+                   id="signupPassword"
+                   placeholder="Password">
+
+            <button onclick="signup()">
+                Create Account
+            </button>
+
+            <p id="signupMessage" class="message"></p>
+
+            <p>
+                Already have an account?
+                <span class="link" onclick="showLogin()">
+                    Login
+                </span>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= USER MODULE ================= -->
+
+    <div id="userApp" class="hidden">
+
+        <header>
+
+            <div class="logo">
+                💪 FitTrack
+            </div>
+
+            <nav>
+
+                <button onclick="showUserSection('userDashboard')">
+                    Dashboard
+                </button>
+
+                <button onclick="showUserSection('workoutSection')">
+                    Workout
+                </button>
+
+                <button onclick="showUserSection('dietSection')">
+                    Diet
+                </button>
+
+                <button onclick="showUserSection('goalsSection')">
+                    Goals
+                </button>
+
+                <button onclick="showUserSection('reportsSection')">
+                    Reports
+                </button>
+
+            </nav>
+
+            <button class="logout-btn"
+                    onclick="logout()">
+                Logout
+            </button>
+
+        </header>
+
+
+        <main>
+
+            <!-- USER DASHBOARD -->
+
+            <section id="userDashboard"
+                     class="user-section">
+
+                <div class="welcome">
+
+                    <h1>
+                        Welcome,
+                        <span id="userName"></span> 👋
+                    </h1>
+
+                    <p>
+                        Monitor your daily fitness activities.
+                    </p>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <div class="card">
+                        <div class="card-icon">👟</div>
+                        <h3>Steps</h3>
+                        <p id="stepsDisplay">0</p>
+                        <small>steps today</small>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🔥</div>
+                        <h3>Calories</h3>
+                        <p id="caloriesDisplay">0</p>
+                        <small>calories consumed</small>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">❤️</div>
+                        <h3>Heart Rate</h3>
+                        <p id="heartRateDisplay">--</p>
+                        <small>BPM</small>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">😴</div>
+                        <h3>Sleep</h3>
+                        <p id="sleepDisplay">0</p>
+                        <small>hours</small>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <div class="panel">
+
+                        <h2>📊 Daily Activity</h2>
+
+                        <label>Steps</label>
+
+                        <input type="number"
+                               id="stepsInput"
+                               placeholder="Enter steps">
+
+                        <label>Heart Rate</label>
+
+                        <input type="number"
+                               id="heartRateInput"
+                               placeholder="BPM">
+
+                        <label>Sleep Hours</label>
+
+                        <input type="number"
+                               id="sleepInput"
+                               step="0.1"
+                               placeholder="Hours">
+
+                        <button onclick="saveActivity()">
+                            Save Activity
+                        </button>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <h2>💡 Recommendation</h2>
+
+                        <p id="recommendation">
+                            Enter your activity data to receive
+                            recommendations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- WORKOUT -->
+
+            <section id="workoutSection"
+                     class="user-section hidden">
+
+                <h1>🏃 Workout Tracker</h1>
+
+                <div class="form-panel">
+
+                    <label>Workout Name</label>
+
+                    <input type="text"
+                           id="workoutName"
+                           placeholder="Example: Running">
+
+                    <label>Duration</label>
+
+                    <input type="number"
+                           id="workoutDuration"
+                           placeholder="Minutes">
+
+                    <label>Calories Burned</label>
+
+                    <input type="number"
+                           id="workoutCalories"
+                           placeholder="Calories">
+
+                    <button onclick="addWorkout()">
+                        Add Workout
+                    </button>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h2>Workout History</h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Workout</th>
+                                <th>Duration</th>
+                                <th>Calories</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="workoutTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- DIET -->
+
+            <section id="dietSection"
+                     class="user-section hidden">
+
+                <h1>🍎 Diet & Calorie Tracker</h1>
+
+                <div class="form-panel">
+
+                    <label>Food Name</label>
+
+                    <input type="text"
+                           id="foodName"
+                           placeholder="Example: Rice">
+
+                    <label>Calories</label>
+
+                    <input type="number"
+                           id="foodCalories"
+                           placeholder="Calories">
+
+                    <button onclick="addFood()">
+                        Add Food
+                    </button>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h2>Today's Food Records</h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Food</th>
+                                <th>Calories</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="foodTable"></tbody>
+
+                    </table>
+
+                    <div class="total-box">
+                        Total Calories:
+                        <strong id="totalCalories">0</strong>
+                        kcal
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- GOALS -->
+
+            <section id="goalsSection"
+                     class="user-section hidden">
+
+                <h1>🎯 Fitness Goals</h1>
+
+                <div class="goal-form">
+
+                    <label>Daily Step Goal</label>
+
+                    <input type="number"
+                           id="stepGoal"
+                           placeholder="Example: 10000">
+
+                    <label>Daily Calorie Goal</label>
+
+                    <input type="number"
+                           id="calorieGoal"
+                           placeholder="Example: 2000">
+
+                    <label>Daily Sleep Goal</label>
+
+                    <input type="number"
+                           id="sleepGoal"
+                           step="0.1"
+                           placeholder="Example: 8">
+
+                    <button onclick="saveGoals()">
+                        Save Goals
+                    </button>
+
+                </div>
+
+
+                <div class="goal-cards">
+
+                    <div class="goal-card">
+                        <h3>👟 Steps Goal</h3>
+                        <p id="stepGoalDisplay">0</p>
+                    </div>
+
+                    <div class="goal-card">
+                        <h3>🔥 Calorie Goal</h3>
+                        <p id="calorieGoalDisplay">0</p>
+                    </div>
+
+                    <div class="goal-card">
+                        <h3>😴 Sleep Goal</h3>
+                        <p id="sleepGoalDisplay">0</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- REPORTS -->
+
+            <section id="reportsSection"
+                     class="user-section hidden">
+
+                <h1>📊 Progress Reports</h1>
+
+                <div class="report-card">
+
+                    <h2>Today's Progress</h2>
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+                            <span>Steps</span>
+                            <span id="stepPercentage">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div id="stepProgress"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+                            <span>Calories</span>
+                            <span id="caloriePercentage">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div id="calorieProgress"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+                            <span>Sleep</span>
+                            <span id="sleepPercentage">0%</span>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div id="sleepProgress"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= ADMIN MODULE ================= -->
+
+    <div id="adminApp" class="hidden">
+
+        <header class="admin-header">
+
+            <div class="logo">
+                🛡️ FitTrack Admin
+            </div>
+
+            <nav>
+
+                <button onclick="showAdminSection('adminDashboard')">
+                    Dashboard
+                </button>
+
+                <button onclick="showAdminSection('usersSection')">
+                    Users
+                </button>
+
+                <button onclick="showAdminSection('recordsSection')">
+                    Fitness Records
+                </button>
+
+            </nav>
+
+            <button class="logout-btn"
+                    onclick="logout()">
+                Logout
+            </button>
+
+        </header>
+
+
+        <main>
+
+            <!-- ADMIN DASHBOARD -->
+
+            <section id="adminDashboard"
+                     class="admin-section">
+
+                <div class="welcome">
+
+                    <h1>Admin Dashboard</h1>
+
+                    <p>
+                        Monitor the FitTrack application.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-cards">
+
+                    <div class="admin-card">
+                        <h3>👥 Registered Users</h3>
+                        <p id="totalUsers">0</p>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>🏃 Total Workouts</h3>
+                        <p id="totalWorkouts">0</p>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>🍎 Food Records</h3>
+                        <p id="totalFoodRecords">0</p>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>🎯 Goal Records</h3>
+                        <p id="totalGoals">0</p>
+                    </div>
+
+                </div>
+
+
+                <div class="admin-info">
+
+                    <h2>Admin Responsibilities</h2>
+
+                    <ul>
+                        <li>View registered users</li>
+                        <li>Monitor fitness records</li>
+                        <li>View workout information</li>
+                        <li>View diet records</li>
+                        <li>View fitness goals</li>
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- USERS -->
+
+            <section id="usersSection"
+                     class="admin-section hidden">
+
+                <h1>👥 Registered Users</h1>
+
+                <div class="panel">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Registered</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="adminUserTable"></tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECORDS -->
+
+            <section id="recordsSection"
+                     class="admin-section hidden">
+
+                <h1>📋 Fitness Records</h1>
+
+                <div class="panel">
+
+                    <div id="adminRecords"></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
